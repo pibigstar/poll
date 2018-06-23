@@ -18,7 +18,8 @@ spring:
     cache: false #开启模板热部署
 ######## mybatis配置 #############
 mybatis:
-  #config-location:  classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
-  
+  type-aliases-package: com.pibigstar.domain # 实体扫描路径
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名   
 

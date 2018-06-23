@@ -2,6 +2,7 @@ package com.pibigstar.web;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,53 +12,56 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pibigstar.domain.User;
+import com.pibigstar.domain.Questions;
 import com.pibigstar.domain.result.MyResponse;
-import com.pibigstar.service.UserService;
+import com.pibigstar.service.QuestionsService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/user")
-@Api(tags = "用户管理Controller")
-public class UserController extends BaseController{
-	@Autowired
-	private UserService userService;
+@RequestMapping("/question")
+@Api(tags="问题管理Controller")
+public class QuestionsController extends BaseController{
 
-	@ApiOperation("根据id查询")
+	@Autowired
+	private QuestionsService questionsService;
+	
+	@ApiOperation("根据id查询问题")
 	@GetMapping("get/{id}")
 	public MyResponse get(@PathVariable Long id) {
-		User user = userService.get(id);
-		return success(user);
+		Questions questions = questionsService.get(id);
+		return success(questions);
 	}
 	
-	@ApiOperation("查询全部用户")
+	@ApiOperation("查询全部问题")
 	@GetMapping("list")
 	public MyResponse list() {
-		List<User> users = userService.findAll();
-		return success(users);
+		List<Questions> questions = questionsService.findAll();
+		return success(questions);
 	}
 	
-	@ApiOperation("添加用户")
+	@ApiOperation("添加问题")
 	@PostMapping("add")
-	public MyResponse add(User user) {
-		int result = userService.add(user);
-		return success("添加成功！",result);
+	public MyResponse add(Questions question) {
+		int result = questionsService.add(question);
+		return success(result);
 	}
-	
-	@ApiOperation("更新用户")
+
+	@ApiOperation("更新问题")
 	@PutMapping("update")
-	public MyResponse update(User user) {
-		int result = userService.add(user);
-		return success("更新成功！",result);
+	public MyResponse Update(Questions question) {
+		int result = questionsService.update(question);
+		return success(result);
 	}
 	
-	@ApiOperation("删除用户")
+	@ApiOperation("删除问题")
 	@DeleteMapping("delete/{id}")
 	public MyResponse delete(@PathVariable Long id) {
-		int result = userService.delete(id);
+		int result = questionsService.delete(id);
 		return success("删除成功！",result);
 	}
+	
+	
 	
 }

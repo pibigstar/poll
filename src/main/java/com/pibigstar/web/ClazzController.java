@@ -15,10 +15,12 @@ import com.pibigstar.domain.Clazz;
 import com.pibigstar.domain.result.MyResponse;
 import com.pibigstar.service.ClazzService;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/clazz")
+@Api(tags="班级管理Controller")
 public class ClazzController extends BaseController{
 	@Autowired
 	private ClazzService clazzService;

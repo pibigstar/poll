@@ -15,10 +15,12 @@ import com.pibigstar.domain.Grade;
 import com.pibigstar.domain.result.MyResponse;
 import com.pibigstar.service.GradeService;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/grade")
+@Api(tags="年级管理Controller")
 public class GradeControl extends BaseController{
 	@Autowired
 	private GradeService gradeService;

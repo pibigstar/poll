@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController()
 @RequestMapping("/school")
-@Api(tags="school-controller")
+@Api(tags="校园管理Controller")
 public class SchoolController extends BaseController{
 	@Autowired
 	private SchoolService schoolService;

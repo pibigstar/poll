@@ -1,5 +1,9 @@
 package com.pibigstar.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Select;
+
 import com.pibigstar.domain.Questionnaire;
 
 public interface QuestionnaireMapper {
@@ -16,4 +20,7 @@ public interface QuestionnaireMapper {
     int updateByPrimaryKeyWithBLOBs(Questionnaire record);
 
     int updateByPrimaryKey(Questionnaire record);
+
+    @Select("select * from poll_questionnaire")
+	List<Questionnaire> findAll();
 }

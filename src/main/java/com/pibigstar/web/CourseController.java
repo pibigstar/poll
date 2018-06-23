@@ -15,10 +15,12 @@ import com.pibigstar.domain.Course;
 import com.pibigstar.domain.result.MyResponse;
 import com.pibigstar.service.CourseService;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/course")
+@Api(tags = "课程管理Controller")
 public class CourseController extends BaseController{
 
 	@Autowired
@@ -53,8 +55,8 @@ public class CourseController extends BaseController{
 	}
 	
 	@ApiOperation("删除课程")
-	@DeleteMapping("delete")
-	public MyResponse delete(Long id) {
+	@DeleteMapping("delete/{id}")
+	public MyResponse delete(@PathVariable Long id) {
 		int result = courseService.delete(id);
 		return success("删除成功！",result);
 	}

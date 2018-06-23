@@ -1,5 +1,9 @@
 package com.pibigstar.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Select;
+
 import com.pibigstar.domain.Survey;
 
 public interface SurveyMapper {
@@ -14,4 +18,7 @@ public interface SurveyMapper {
     int updateByPrimaryKeySelective(Survey record);
 
     int updateByPrimaryKey(Survey record);
+
+    @Select("select * from poll_survey")
+	List<Survey> findAll();
 }
