@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pibigstar.dao.OptionsMapper" >
+  <resultMap id="BaseResultMap" type="com.pibigstar.domain.Options" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="label" property="label" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="question_id" property="questionId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, `label`, `name`, score, question_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from poll_options
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from poll_options
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.pibigstar.domain.Options" >
+    insert into poll_options (id, `label`, `name`, 
+      score, question_id)
+    values (#{id,jdbcType=BIGINT}, #{label,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, 
+      #{score,jdbcType=INTEGER}, #{questionId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pibigstar.domain.Options" >
+    insert into poll_options
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="label != null" >
+        `label`,
+      </if>
+      <if test="name != null" >
+        `name`,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="questionId != null" >
+        question_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="label != null" >
+        #{label,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="questionId != null" >
+        #{questionId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pibigstar.domain.Options" >
+    update poll_options
+    <set >
+      <if test="label != null" >
+        `label` = #{label,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="questionId != null" >
+        question_id = #{questionId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pibigstar.domain.Options" >
+    update poll_options
+    set `label` = #{label,jdbcType=CHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      question_id = #{questionId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

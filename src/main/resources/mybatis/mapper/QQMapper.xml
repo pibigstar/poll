@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pibigstar.dao.QQMapper" >
+  <resultMap id="BaseResultMap" type="com.pibigstar.domain.QQKey" >
+    <id column="questions_id" property="questionsId" jdbcType="BIGINT" />
+    <id column="questionnaire_id" property="questionnaireId" jdbcType="BIGINT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.pibigstar.domain.QQKey" >
+    delete from poll_qq
+    where questions_id = #{questionsId,jdbcType=BIGINT}
+      and questionnaire_id = #{questionnaireId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.pibigstar.domain.QQKey" >
+    insert into poll_qq (questions_id, questionnaire_id)
+    values (#{questionsId,jdbcType=BIGINT}, #{questionnaireId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pibigstar.domain.QQKey" >
+    insert into poll_qq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="questionsId != null" >
+        questions_id,
+      </if>
+      <if test="questionnaireId != null" >
+        questionnaire_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="questionsId != null" >
+        #{questionsId,jdbcType=BIGINT},
+      </if>
+      <if test="questionnaireId != null" >
+        #{questionnaireId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

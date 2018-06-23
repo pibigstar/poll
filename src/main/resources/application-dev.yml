@@ -1,0 +1,35 @@
+##################开发环境################
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: yueyu
+    url: jdbc:mysql://127.0.0.1:3306/poll?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    data-username: root
+    data-password: 123456
+########### Mybatis 配置  ################
+mybatis:
+  type-aliases-package: com.pibigstar.domain # 实体扫描路径
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名   
+ 
+######### redis ##############    
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1 # 设置数据库索引为1 默认为0
+    password: # 密码为空
+    jedis:
+      pool:
+        max-active: 1000 # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 10 # 连接池中的最大空闲连接
+        min-idle: 2 # 连接池中的最小空闲连接
+    timeout: 2000 # 连接超时时间（毫秒）
+     
+######### 热部署配置 #############
+  devtools:
+    restart:
+      enabled: true # 开启热部署
+      additional-paths: src/main/java #修改那个目录下的文件需要restart
