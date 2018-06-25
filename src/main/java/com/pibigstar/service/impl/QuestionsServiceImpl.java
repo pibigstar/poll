@@ -2,6 +2,8 @@ package com.pibigstar.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,21 +22,25 @@ public class QuestionsServiceImpl implements QuestionsService{
 		return questionsMapper.findAll();
 	}
 
+	@Transactional
 	@Override
 	public Questions get(Long id) {
 		return questionsMapper.selectByPrimaryKey(id);
 	}
 
+	@Transactional
 	@Override
 	public int update(Questions question) {
 		return questionsMapper.updateByPrimaryKeySelective(question);
 	}
 
+	@Transactional
 	@Override
 	public int add(Questions question) {
 		return questionsMapper.insertSelective(question);
 	}
 
+	@Transactional
 	@Override
 	public int delete(Long id) {
 		return questionsMapper.deleteByPrimaryKey(id);

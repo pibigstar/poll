@@ -31,7 +31,7 @@ public class SchoolServiceImpl implements SchoolService{
 	}
 
 	@Override
-	@Cacheable
+	@Cacheable//添加到缓存
 	public List<School> findAllLikeName(String name) {
 		return 	schoolMapper.findAllLikeName("%"+name+"%");
 	}

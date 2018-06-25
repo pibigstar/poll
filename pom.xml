@@ -85,7 +85,7 @@
 			<version>2.8.0</version>
 		</dependency>
 
-		<!-- redis做缓存机制 -->
+		<!-- redis做缓存机制
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
@@ -94,12 +94,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
-
+ 		-->
 		<!-- json -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.47</version>
+		</dependency>
+		<!-- 文件上传工具类 -->
+		<dependency>
+			<groupId>net.oschina.zcx7878</groupId>
+			<artifactId>fastdfs-client-java</artifactId>
+			<version>1.27.0.0</version>
 		</dependency>
 
 
