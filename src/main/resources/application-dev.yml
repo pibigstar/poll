@@ -9,6 +9,7 @@ spring:
     data-username: root
     data-password: 123456
  
+ 
 ######### redis ##############    
   redis:
     host: 127.0.0.1
@@ -28,3 +29,4 @@ spring:
     restart:
       enabled: true # 开启热部署
       additional-paths: src/main/java #修改那个目录下的文件需要restart
+      
