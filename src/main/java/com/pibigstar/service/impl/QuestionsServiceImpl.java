@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.pibigstar.dao.QuestionsMapper;
 import com.pibigstar.domain.Questions;
+import com.pibigstar.domain.extend.QuestionModel;
 import com.pibigstar.service.QuestionsService;
 
 @Service
@@ -18,7 +19,7 @@ public class QuestionsServiceImpl implements QuestionsService{
 	private QuestionsMapper questionsMapper;
 	
 	@Override
-	public List<Questions> findAll() {
+	public List<QuestionModel> findAll() {
 		return questionsMapper.findAll();
 	}
 

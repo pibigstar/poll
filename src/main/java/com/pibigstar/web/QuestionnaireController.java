@@ -36,6 +36,11 @@ public class QuestionnaireController extends BaseController{
 	public MyResponse list() {
 		return success(questionnaireService.findAll());
 	}
+	@ApiOperation("查询全部问卷")
+	@GetMapping("listModel")
+	public MyResponse listModel() {
+		return success(questionnaireService.findAllModel());
+	}
 	
 	@ApiOperation("添加问卷")
 	@PostMapping("add")

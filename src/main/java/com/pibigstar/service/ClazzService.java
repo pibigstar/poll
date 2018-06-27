@@ -3,12 +3,13 @@ package com.pibigstar.service;
 import java.util.List;
 
 import com.pibigstar.domain.Clazz;
+import com.pibigstar.domain.extend.ClazzModel;
 
 public interface ClazzService {
 	
 	public Clazz getOneById(Long id);
 	
-	public List<Clazz> list();
+	public List<ClazzModel> list();
 	
 	public int add(Clazz clazz);
 	

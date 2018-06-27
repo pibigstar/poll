@@ -2,9 +2,15 @@ package com.pibigstar.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
+import com.pibigstar.domain.QQKey;
 import com.pibigstar.domain.Questionnaire;
+import com.pibigstar.domain.extend.QuestionModel;
+import com.pibigstar.domain.extend.QuestionnaireModel;
 
 public interface QuestionnaireMapper {
     int deleteByPrimaryKey(Long id);
@@ -23,4 +29,13 @@ public interface QuestionnaireMapper {
 
     @Select("select * from poll_questionnaire")
 	List<Questionnaire> findAll();
+    
+    
+    @Select("select * from poll_questionnaire")
+    @Results({
+    	@Result(property="id",column="id"),
+    	@Result(property="questions",column="id",many=@Many(select="com.pibigstar.dao.QQMapper.selectAllQuestions")),
+    })
+    List<QuestionnaireModel> findAllModel();
+    
 }

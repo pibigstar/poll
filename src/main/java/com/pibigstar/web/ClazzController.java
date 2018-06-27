@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pibigstar.domain.Clazz;
+import com.pibigstar.domain.extend.ClazzModel;
 import com.pibigstar.domain.result.MyResponse;
 import com.pibigstar.service.ClazzService;
 
@@ -35,7 +36,7 @@ public class ClazzController extends BaseController{
 	@ApiOperation("查询全部班级")
 	@GetMapping("list")
 	public MyResponse list() {
-		List<Clazz> clazzs = clazzService.list();
+		List<ClazzModel> clazzs = clazzService.list();
 		return success(clazzs);
 	}
 

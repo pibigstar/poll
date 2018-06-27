@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.pibigstar.dao.QuestionnaireMapper;
 import com.pibigstar.domain.Questionnaire;
+import com.pibigstar.domain.extend.QuestionnaireModel;
 import com.pibigstar.service.QuestionnaireService;
 
 @Service
@@ -43,6 +44,11 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 	@Override
 	public int delete(Long id) {
 		return questionnarieMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public List<QuestionnaireModel> findAllModel() {
+		return questionnarieMapper.findAllModel();
 	}
 
 }
