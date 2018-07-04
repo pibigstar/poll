@@ -6,10 +6,7 @@ import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-
-import com.pibigstar.domain.QQKey;
 import com.pibigstar.domain.Questionnaire;
-import com.pibigstar.domain.extend.QuestionModel;
 import com.pibigstar.domain.extend.QuestionnaireModel;
 
 public interface QuestionnaireMapper {

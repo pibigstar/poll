@@ -3,9 +3,11 @@ package com.pibigstar.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 
 import com.pibigstar.domain.Grade;
-
 public interface GradeMapper {
 	
     int deleteByPrimaryKey(Long id);

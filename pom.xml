@@ -81,10 +81,15 @@
 			<version>2.8.0</version>
 		</dependency>
 
-		<!-- redis做缓存机制 <dependency> <groupId>org.springframework.boot</groupId> 
-			<artifactId>spring-boot-starter-data-redis</artifactId> </dependency> <dependency> 
-			<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-cache</artifactId> 
-			</dependency> -->
+		<!-- redis做缓存机制 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
 		<!-- json -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -103,9 +108,6 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.9.2</version>
 		</dependency>
-
-
-
 
 	</dependencies>
 

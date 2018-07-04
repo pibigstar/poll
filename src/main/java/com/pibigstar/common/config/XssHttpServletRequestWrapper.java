@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.pibigstar.utils.JsoupUtil;
+import com.pibigstar.utils.xssUtil;
 
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {  
     HttpServletRequest orgRequest = null;  
@@ -27,10 +27,10 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
             if(("content".equals(name) || name.endsWith("WithHtml")) && !isIncludeRichText){
                 return super.getParameter(name);
             }
-            name = JsoupUtil.clean(name);
+            name = xssUtil.clean(name);
         String value = super.getParameter(name);  
         if (StringUtils.isNotBlank(value)) {
-            value = JsoupUtil.clean(value);  
+            value = xssUtil.clean(value);  
         }
         return value;  
     }  
@@ -40,7 +40,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         String[] arr = super.getParameterValues(name);
         if(arr != null){
             for (int i=0;i<arr.length;i++) {
-                arr[i] = JsoupUtil.clean(arr[i]);
+                arr[i] = xssUtil.clean(arr[i]);
             }
         }
         return arr;
@@ -54,10 +54,10 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
     */  
     @Override  
     public String getHeader(String name) {  
-            name = JsoupUtil.clean(name);
+            name = xssUtil.clean(name);
         String value = super.getHeader(name);  
         if (StringUtils.isNotBlank(value)) {  
-            value = JsoupUtil.clean(value); 
+            value = xssUtil.clean(value); 
         }  
         return value;  
     }  
