@@ -9,11 +9,12 @@ spring:
     data-username: root
     data-password: 123456
  
+ 
 ######### redis ##############    
   redis:
     host: 127.0.0.1
     port: 6379
-    database: 1 # 设置数据库索引为1 默认为0
+    database: 0 # 设置数据库索引为0 默认为0
     password: # 密码为空
     jedis:
       pool:
@@ -22,9 +23,10 @@ spring:
         max-idle: 10 # 连接池中的最大空闲连接
         min-idle: 2 # 连接池中的最小空闲连接
     timeout: 2000 # 连接超时时间（毫秒）
-     
+    
 ######### 热部署配置 #############
   devtools:
     restart:
       enabled: true # 开启热部署
       additional-paths: src/main/java #修改那个目录下的文件需要restart
+      

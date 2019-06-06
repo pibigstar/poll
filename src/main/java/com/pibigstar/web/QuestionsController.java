@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pibigstar.domain.Questions;
+import com.pibigstar.domain.extend.QuestionModel;
 import com.pibigstar.domain.result.MyResponse;
 import com.pibigstar.service.QuestionsService;
 
@@ -37,7 +38,7 @@ public class QuestionsController extends BaseController{
 	@ApiOperation("查询全部问题")
 	@GetMapping("list")
 	public MyResponse list() {
-		List<Questions> questions = questionsService.findAll();
+		List<QuestionModel> questions = questionsService.findAll();
 		return success(questions);
 	}
 	

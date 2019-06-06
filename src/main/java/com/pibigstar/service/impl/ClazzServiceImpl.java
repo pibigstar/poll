@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.pibigstar.dao.ClazzMapper;
 import com.pibigstar.domain.Clazz;
+import com.pibigstar.domain.extend.ClazzModel;
 import com.pibigstar.service.ClazzService;
 
 @Service
@@ -23,7 +24,7 @@ public class ClazzServiceImpl implements ClazzService{
 	}
 
 	@Override
-	public List<Clazz> list() {
+	public List<ClazzModel> list() {
 		return clazzMapper.findAll();
 	}
 

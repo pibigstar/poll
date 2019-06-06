@@ -2,6 +2,8 @@ package com.pibigstar.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,16 +27,19 @@ public class SurveyServiceImpl implements SurveyService{
 		return surveyMapper.selectByPrimaryKey(id);
 	}
 
+	@Transactional
 	@Override
 	public int update(Survey survey) {
 		return surveyMapper.updateByPrimaryKeySelective(survey);
 	}
 
+	@Transactional
 	@Override
 	public int add(Survey survey) {
 		return surveyMapper.insertSelective(survey);
 	}
 
+	@Transactional
 	@Override
 	public int delete(Long id) {
 		return surveyMapper.deleteByPrimaryKey(id);

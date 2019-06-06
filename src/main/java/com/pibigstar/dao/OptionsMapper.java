@@ -1,5 +1,9 @@
 package com.pibigstar.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Select;
+
 import com.pibigstar.domain.Options;
 
 public interface OptionsMapper {
@@ -14,4 +18,7 @@ public interface OptionsMapper {
     int updateByPrimaryKeySelective(Options record);
 
     int updateByPrimaryKey(Options record);
+    
+    @Select("select * from poll_options where question_id = #{id}")
+    List<Options> findAllByQuestionId(Long id);
 }
